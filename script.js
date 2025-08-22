@@ -1,10 +1,31 @@
-const element = document.getElementById("txt")
-const nomeC = document.getElementById("nomeC")
-const declarante = document.getElementById("declarante")
-const cpf = document.getElementById("cpf")
+const nomeDeclarante = document.getElementById("lbl_declarante")
+const nomeCidadao = document.getElementById("lbl_nomeCidadao")
+const cpf = document.getElementById("lbl_cpf")
+const dasHora = document.getElementById("lbl_dasHora")
+const ateHora = document.getElementById("lbl_ateHora")
 
-function nomeCidadao(nomeC, declarante, cpf, ){
-    
-}
+const dataAtual = new Date().toLocaleDateString()
 
-element.innerHTML = `Declaro para os devidos fins, que o(a) Sr(a). ${nomeCidadao(nomeC)} Esteve`
+
+const texto = document.getElementById("txt")
+
+document.querySelector("#bttn").addEventListener('click', function() {
+    let dados = {
+        nomeDecl: nomeDeclarante.value,
+        nomeCid: nomeCidadao.value,
+        cpf: cpf.value,
+        dasHora: dasHora.value,
+        ateHora: ateHora.value
+    }
+    texto.innerHTML = `
+    Meu nome é 
+    <strong>${dados.nomeCid}</strong> 
+    portador do CPF 
+    <strong>${dados.cpf}</strong>  
+    e estive aqui às 
+    <strong>${dados.dasHora}</strong>  até 
+    <strong>${dados.ateHora}</strong>  Responsável: 
+    <strong>${dados.nomeDecl}</strong>
+    <strong>${dataAtual}</strong> 
+    `
+})
