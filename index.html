@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Declaração de horas</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <form id="form" action="script.js" method="get">
+        <div>
+            <label for="lbl_declarante">Nome do declarante:</label>
+            <input type="text" class="declarante" name="dclr" id="lbl_declarante">
+        </div>
+        <div>
+            <label for="lbl_nome">Nome do cidadão: </label>
+            <input type="text" class="nomeC" name="nome" id="lbl_nome" maxlength="40">
+        </div>
+        <div>
+            <label for="lbl_cpf">CPF do cidadão</label>
+            <input type="text" class="cpf" name="cpf" id="lbl_cpf" placeholder="000.000.000-00">
+        </div>
+        <div id="hora">
+            <label for="lbl_hora">Horário: Das</label>
+            <input type="time" class="hora" name="hora" id="lbl_hora" placeholder="00:00">
+            <label for="lbl_hora2">Ás</label>
+            <input type="time" class="hora2" name="hora2" id="lbl_hora2" placeholder="00:00">
+        </div>
+    </form>
+    <p id="txt"></p>
+    <script type="module" src="script.js"></script>
+</body>
+</html>
