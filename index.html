@@ -4,31 +4,89 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Declaração de horas</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="img/diabo.png" type="image/x-icon">
+    <link rel="stylesheet" href="estilos/style.css">
+    <link rel="stylesheet" href="estilos/print.css" media="print">
+    <link rel="stylesheet" href="estilos/tela.css" media="screen">
 </head>
 <body>
-    <form id="form" action="" method="get">
+    <form id="form">
         <div>
             <label for="lbl_nomeCidadao">Nome do cidadão: </label>
-            <input type="text" class="input" name="nomeCidadao" id="lbl_nomeCidadao" maxlength="40">
+            <input type="text" class="input" name="nomeCidadao" id="lbl_nomeCidadao" maxlength="40" oninput="cnome.innerHTML = String(lbl_nomeCidadao.value).toUpperCase()">
         </div>
         <div>
             <label for="lbl_declarante">Nome do declarante:</label>
-            <input type="text" class="input" name="dclr" id="lbl_declarante">
+            <select name="dclr" id="lbl_declarante" oninput="cdcl.innerHTML = String(lbl_declarante.value).toUpperCase()">
+                <option selected disabled>Escolha um nome</option>
+                <option value="Leonardo Rodrigues">Leo</option>
+                <option value="Fernanda Pinheiros">Fernanda</option>
+                <option value="Matheus Felipe">Matheus</option>
+            </select>
         </div>
         <div>
             <label for="lbl_cpf">CPF do cidadão</label>
-            <input type="text" class="input" name="cpf" id="lbl_cpf" placeholder="000.000.000-00">
+            <input type="text" class="input" name="cpf" id="lbl_cpf" placeholder="000.000.000-00" maxlength="14" oninput="ccpf.innerHTML = String(lbl_cpf.value)">
         </div>
         <div id="hora">
             <label for="lbl_dasHora">Horário: Das</label>
-            <input type="time" class="input" name="dasHora" id="lbl_dasHora" placeholder="00:00">
+            <input type="time" class="input" name="ateHora" id="lbl_ateHora" placeholder="00:00" oninput="cAteHora.innerHTML = String(lbl_ateHora.value)">
+
             <label for="lbl_ateHora">Ás</label>
-            <input type="time" class="input" name="ateHora" id="lbl_ateHora" placeholder="00:00">
+            <input type="time" class="input" name="dasHora" id="lbl_dasHora" placeholder="00:00" oninput="cDasHora.innerHTML = String(lbl_dasHora.value)">
         </div>
+        <button id="bttn" onclick="window.print()">Gerar</button>
     </form>
-    <button id="bttn">Gerar</button>
-    <p id="txt"></p>
-    <script type="module" src="script.js"></script>
+    <div id="declaracao">
+        <h2>DECLARAÇÃO DE COMPARECIMENTO</h2>
+        <div id="conteudo">
+            <div class="txt"  id="txt1">
+                <p>Declaro para os devidos fins que o(a) Sr(a):
+                <span id="cnome">NOME DO CIDADÃO</span> CPF: 
+                <span id="ccpf">000.000.000-00</span>
+                compareceu ao Descomplica SP Cidade Ademar, 
+                para a realização do(s) serviço(s): 
+                <strong> Cadastro Único</strong> permanecendo das 
+                <span id="cAteHora">00:00</span> ás 
+                <span id="cDasHora">00:00</span></p>
+            </div>
+            <div class="txt" id="txt2">
+                <p>São Paulo,
+                <span id="cData"></span></p>
+                <p>Administração</p> <br> 
+                <p>x___________________________ <br><br>
+                <span id="cdcl">NOME DO DECLARANTE</span><br><br><br>
+                Descomplica SP Cidade Ademar<br>
+                AV. Yervant Kissajikian, 416</p><br><br>
+                <img src="img/CIDADE ADEMAR.png" alt="" width="200px">
+            </div>
+        </div>
+    </div>
+
+    <script>        
+        const cpf = document.getElementById('lbl_cpf');
+        const data = document.getElementById('cData')
+
+        const getData = new Date().toLocaleDateString('pt-BR', {
+            day: "numeric",
+            month: "long", 
+            year: "numeric"
+        })
+
+        data.innerHTML = getData
+
+        cpf.addEventListener('input', function(e) {
+        let valor = e.target.value.replace(/\D/g, "");
+
+            if (valor.length <= 11){
+                valor = valor.replace(/(\d{3})(\d)/, '$1.$2');
+                valor = valor.replace(/(\d{3})(\d)/, '$1.$2');
+                valor = valor.replace(/(\d{3})(\d{1,2})$/, '$1-$2');
+                e.target.value = valor;
+            }
+        });
+
+
+    </script>
 </body>
 </html>
