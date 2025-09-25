@@ -13,7 +13,7 @@
     <form id="form">
         <div>
             <label for="lbl_nomeCidadao">Nome do cidadão: </label>
-            <input type="text" class="input" name="nomeCidadao" id="lbl_nomeCidadao" maxlength="40" oninput="cnome.innerHTML = String(lbl_nomeCidadao.value).toUpperCase()">
+            <input type="text" class="input" name="nomeCidadao" placeholder="Nome" id="lbl_nomeCidadao" maxlength="40" oninput="cnome.innerHTML = String(lbl_nomeCidadao.value).toUpperCase()">
         </div>
         <div>
             <label for="lbl_declarante">Nome do declarante:</label>
@@ -22,6 +22,17 @@
                 <option value="Leonardo Rodrigues">Leo</option>
                 <option value="Fernanda Pinheiros">Fernanda</option>
                 <option value="Matheus Felipe">Matheus</option>
+            </select>
+        </div>
+
+        <div>
+            <label for="lbl_servico">Serviços</label>
+            <select name="servico" id="lbl_servico" oninput="cServico.innerHTML = String(lbl_servico.value)">
+                <option value="Cadastro Único">Cadastro Único</option>
+                <option value="Descomplica Digital">Descomplica Digital</option>
+                <option value="Subprefeitura">Subprefeitura</option>
+                <option value="CATE">CATE</option>
+                <option value="SP Trans">SPTrans</option>
             </select>
         </div>
         <div>
@@ -46,7 +57,7 @@
                 <span id="ccpf">000.000.000-00</span>
                 compareceu ao Descomplica SP Cidade Ademar, 
                 para a realização do(s) serviço(s): 
-                <strong> Cadastro Único</strong> permanecendo das 
+                <span id="cServico">Cadastro Único</span> permanecendo das 
                 <span id="cAteHora">00:00</span> ás 
                 <span id="cDasHora">00:00</span></p>
             </div>
@@ -85,7 +96,6 @@
                 e.target.value = valor;
             }
         });
-
 
     </script>
 </body>
