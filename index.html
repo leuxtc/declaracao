@@ -15,15 +15,10 @@
             <label for="lbl_nomeCidadao">Nome do cidadão: </label>
             <input type="text" class="input" name="nomeCidadao" placeholder="Nome" id="lbl_nomeCidadao" maxlength="40" oninput="cnome.innerHTML = String(lbl_nomeCidadao.value).toUpperCase()">
         </div>
-        <div>
+        <div id="declarante">
             <label for="lbl_declarante">Nome do declarante:</label>
-            <select name="dclr" id="lbl_declarante" oninput="cdcl.innerHTML = String(lbl_declarante.value).toUpperCase()">
-                <option selected disabled>Escolha um nome</option>
-                <option value="Leonardo Rodrigues">Leo</option>
-                <option value="Matheus Felipe">Matheus</option>
-            </select>
+            <input type="text" class="input" name="dclr2" placeholder="Nome do declarante" id="lbl_nomeDclr" maxlength="25" oninput="cdcl.innerHTML = String(lbl_nomeDclr.value).toUpperCase()">
         </div>
-
         <div>
             <label for="lbl_servico">Serviços</label>
             <select name="servico" id="lbl_servico" oninput="cServico.innerHTML = String(lbl_servico.value)">

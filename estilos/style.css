@@ -10,7 +10,7 @@ body{
 }
 
 #form {
-    width: 500px;
+    width: 600px;
     height: auto;
     background-color: aliceblue;
     border-radius: 1rem;
@@ -26,6 +26,10 @@ body{
     align-items: center;
     justify-content: space-between;
     margin: .8rem;
+}
+
+#form > input {
+    padding-left: 15px;
 }
 
 #hora > input{
