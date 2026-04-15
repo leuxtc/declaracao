@@ -1,0 +1,50 @@
+@charset "UTF-8";
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+#declaracao {
+    background-color: white;
+    width: 15cm;
+    height: 20cm;
+    margin-left: 2rem;
+    display: flex;
+    flex-direction: column;
+    padding: 60px;
+}
+
+#declaracao > h2 {
+    font-size: 15px;
+    margin: 50px 0;
+    align-self: center;
+}
+
+#conteudo > .txt {
+    margin-top: 50px;
+}
+
+#txt1 {
+    width: 13cm;
+    margin-left: 40px;
+}
+
+#txt1 > p {
+    line-height: 22px;
+}
+
+#txt2{
+    display: flex;
+    flex-direction: column;
+    justify-self: right;
+    align-items: center;
+}
+
+#txt2 > p {
+    margin-top: 45px;
+}
+
+#cdcl {
+    font-size: 15px;
+}
